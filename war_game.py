@@ -175,7 +175,8 @@ class War_Game:
 
     def check_shuffle(self):
         for player in self.players:
-            if player.get_hand_size() == 0:
+            if player.get_hand_size() == 0 and player.get_discard_size() > 0:
+		print(f"{player.get_name()}'s hand is empty. It'll be shuffled")
                 player.shuffle_discard()
 
     def play_game(self):
