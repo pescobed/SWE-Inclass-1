@@ -233,13 +233,12 @@ class War_Player:
 
     def get_total_cards(self):
         return len(self.discard) + len(self.hand)
-
+	    
+# simplify the shuffle method
     def shuffle_discard(self):
-        # Shuffle discard and then add to Hand, while removing from discard
-        for i in range(7):
-            random.shuffle(self.discard)
-        while(len(self.discard) > 0):
-            self.add_card_hand(self.discard.pop())
+    random.shuffle(self.discard)
+    while self.discard:
+        self.add_card_hand(self.discard.pop())
 
     def add_win(self):
         self.record[0] += 1
