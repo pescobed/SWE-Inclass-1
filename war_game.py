@@ -135,6 +135,7 @@ class War_Game:
         for i in range(num_players):
             name = "Player %d" % (i+1)
             self.players.append(War_Player(name))
+
     # added a list comprehension
     def deal_cards(self):
     	self.deck.shuffle()
