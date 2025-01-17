@@ -152,15 +152,18 @@ class War_Game:
         for player in self.players:
             player.reset_player()
         self.deal_cards()
-
+# changed the play round method
     def play_round(self):
-        # Get a card from all players, and find the biggest
-        cards = []
-        for player in self.players:
-            cards.append(player.play_card())
+    cards = []
+    for player in self.players:
+        cards.append(player.play_card())
 
-        winner = cards.index(max(cards))
-        self.players[winner].add_card_discard(cards)
+    winner = 0
+    for i in range(1, len(cards)):
+        if cards[i] > cards[winner]:
+            winner = i
+		
+    self.players[winner].add_card_discard(cards)
 
     def game_won(self):
         result = -1
