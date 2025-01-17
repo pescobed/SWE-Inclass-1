@@ -136,13 +136,13 @@ class War_Game:
             name = "Player %d" % (i+1)
             self.players.append(War_Player(name))
 
-# Shuffle the deck only once before dealing
+    # added a list comprehension
     def deal_cards(self):
-        def deal_cards(self):
     	self.deck.shuffle()
+    
+    	# Use list comprehension to add cards to players' hands
     	while self.players[0].get_hand_size() < 26:
-             for player in self.players:
-                 player.add_card_hand(self.deck.deal())
+             [player.add_card_hand(self.deck.deal()) for player in self.players]
 
 
     def initialize_game(self):
