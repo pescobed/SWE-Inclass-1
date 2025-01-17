@@ -136,17 +136,14 @@ class War_Game:
             name = "Player %d" % (i+1)
             self.players.append(War_Player(name))
 
+# Shuffle the deck only once before dealing
     def deal_cards(self):
-        # Assumes hands are empty
-        self.deck.shuffle()
-        counter = 0
-        while(self.players[0].get_hand_size() < 26):
-            for player in self.players:
-                player.add_card_hand(self.deck.deal())
-                counter += 1
-                if counter == 52:
-                    self.deck.shuffle()
-                    counter = 0
+        def deal_cards(self):
+    	self.deck.shuffle()
+    	while self.players[0].get_hand_size() < 26:
+             for player in self.players:
+                 player.add_card_hand(self.deck.deal())
+
 
     def initialize_game(self):
         for player in self.players:
